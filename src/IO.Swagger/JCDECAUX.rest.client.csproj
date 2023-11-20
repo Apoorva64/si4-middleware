@@ -16,7 +16,7 @@ OpenAPI spec version: 1.0.0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>JCDECAUX.rest.client</RootNamespace>
     <AssemblyName>JCDECAUX.rest.client</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
