@@ -1,0 +1,314 @@
+openapi: '3.0.0'
+info:
+  version: '1.0.0'
+  title: 'JcDecaux'
+  description: 'JcDecaux API'
+
+
+paths:
+  /contracts:
+    #    parameters:
+    #      - $ref: '#/components/parameters/ApiKey'
+    
+    get:
+      summary: Get all contracts
+      operationId: getContracts
+      tags:
+        - contracts
+      responses:
+        '200':
+          description: A list of contracts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Contract'
+      security:
+        - ApiKey: []
+  /stations/{station_number}:
+    parameters:
+      #      - $ref: '#/components/parameters/ApiKey'
+      - name: station_number
+        in: path
+        required: true
+        schema:
+          type: integer
+      - name: contract_name
+        in: query
+        required: true
+        schema:
+          type: string
+    
+    
+    get:
+      summary: Get a station
+      operationId: getStation
+      tags:
+        - stations
+      responses:
+        '200':
+          description: A station
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Station'
+      security:
+        - ApiKey: []
+  /stations:
+    #    parameters:
+    #      - $ref: '#/components/parameters/ApiKey'
+    
+    get:
+      summary: Get all stations
+      operationId: getStations
+      tags:
+        - stations
+      responses:
+        '200':
+          description: A list of stations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Station'
+      security:
+        - ApiKey: [ ]
+              
+  /contracts/{contract_name}/parks:
+    parameters:
+      #      - $ref: '#/components/parameters/ApiKey'
+      - name: contract_name
+        in: path
+        required: true
+        schema:
+          type: string
+    
+    get:
+      security:
+        - ApiKey: [ ]
+      summary: Get all parks of a contract
+      operationId: getParks
+      tags:
+        - parks
+      responses:
+        '200':
+          description: A list of parks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Park'
+  /contracts/{contract_name}/parks/{park_number}:
+    parameters:
+      #      - $ref: '#/components/parameters/ApiKey'
+      - name: contract_name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: park_number
+        in: path
+        required: true
+        schema:
+          type: integer
+    
+    get:
+      security:
+        - ApiKey: [ ]
+      summary: Get a park
+      operationId: getPark
+      tags:
+        - parks
+      responses:
+        '200':
+          description: A park
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Park'
+
+components:
+  parameters:
+    ApiKey:
+      name: apiKey
+      in: query
+      required: true
+      schema:
+        type: string
+      
+      example: 7707124e33cfcabf9ba9896babf0d106860bd77a
+  
+  schemas:
+    Park:
+      type: object
+      properties:
+        contractName:
+          type: string
+        name:
+          type: string
+        number:
+          type: integer
+          format: int32
+        status:
+          type: string
+        position:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+        accessType:
+          type: string
+        lockerType:
+          type: string
+        hasSurveillance:
+          type: boolean
+        isFree:
+          type: boolean
+        address:
+          type: string
+        zipCode:
+          type: string
+        city:
+          type: string
+        isOffStreet:
+          type: boolean
+        hasElectricSupport:
+          type: boolean
+        hasPhysicalReception:
+          type: boolean
+
+    Station:
+      type: object
+      properties:
+        number:
+          type: integer
+          format: int32
+        contractName:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        position:
+          type: object
+          properties:
+            latitude:
+              type: number
+            longitude:
+              type: number
+        banking:
+          type: boolean
+        bonus:
+          type: boolean
+        status:
+          type: string
+        lastUpdate:
+          type: string
+          format: date-time
+        connected:
+          type: boolean
+        overflow:
+          type: boolean
+        shape:
+          type: string
+          format: nullable
+        totalStands:
+          type: object
+          properties:
+            availabilities:
+              type: object
+              properties:
+                bikes:
+                  type: integer
+                  format: int32
+                stands:
+                  type: integer
+                  format: int32
+                mechanicalBikes:
+                  type: integer
+                  format: int32
+                electricalBikes:
+                  type: integer
+                  format: int32
+                electricalInternalBatteryBikes:
+                  type: integer
+                  format: int32
+                electricalRemovableBatteryBikes:
+                  type: integer
+                  format: int32
+            capacity:
+              type: integer
+              format: int32
+        mainStands:
+          type: object
+          properties:
+            availabilities:
+              type: object
+              properties:
+                bikes:
+                  type: integer
+                  format: int32
+                stands:
+                  type: integer
+                  format: int32
+                mechanicalBikes:
+                  type: integer
+                  format: int32
+                electricalBikes:
+                  type: integer
+                  format: int32
+                electricalInternalBatteryBikes:
+                  type: integer
+                  format: int32
+                electricalRemovableBatteryBikes:
+                  type: integer
+                  format: int32
+            capacity:
+              type: integer
+              format: int32
+        overflowStands:
+          type: string
+          format: nullable
+    
+    Contract:
+      type: object
+      properties:
+        name:
+          description: The name of the contract
+          type: string
+        commercial_name:
+          description: The commercial name of the contract
+          type: string
+        country_code:
+          description: The country code of the contract
+          type: string
+        cities:
+          description: The cities of the contract
+          type: array
+          items:
+            type: string
+    Error:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          description: A human readable error message
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: apiKey
+      in: query
+      name: apiKey
+
+servers:
+  - url: https://api.jcdecaux.com/vls/v1
+    description: Production server
+    variables: 
+      apiKey:
+        default: 7707124e33cfcabf9ba9896babf0d106860bd77a
