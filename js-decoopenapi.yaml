@@ -25,7 +25,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Contract'
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
   /stations/{station_number}:
     parameters:
       #      - $ref: '#/components/parameters/ApiKey'
@@ -34,7 +34,7 @@ paths:
         required: true
         schema:
           type: integer
-      - name: contract_name
+      - name: contract
         in: query
         required: true
         schema:
@@ -54,7 +54,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Station'
       security:
-        - ApiKey: []
+        - ApiKey: [ ]
   /stations:
     #    parameters:
     #      - $ref: '#/components/parameters/ApiKey'
@@ -75,11 +75,11 @@ paths:
                   $ref: '#/components/schemas/Station'
       security:
         - ApiKey: [ ]
-              
+
   /contracts/{contract_name}/parks:
     parameters:
       #      - $ref: '#/components/parameters/ApiKey'
-      - name: contract_name
+      - name: contract
         in: path
         required: true
         schema:
@@ -188,7 +188,7 @@ components:
         number:
           type: integer
           format: int32
-        contractName:
+        contract_name:
           type: string
         name:
           type: string
@@ -197,101 +197,42 @@ components:
         position:
           type: object
           properties:
-            latitude:
+            lat:
               type: number
-            longitude:
+            lng:
               type: number
         banking:
           type: boolean
         bonus:
           type: boolean
+        bike_stands:
+          type: integer
+          format: int32
+        available_bike_stands:
+          type: integer
+          format: int32
+        available_bikes:
+          type: integer
+          format: int32
         status:
           type: string
-        lastUpdate:
-          type: string
-          format: date-time
-        connected:
-          type: boolean
-        overflow:
-          type: boolean
-        shape:
-          type: string
-          format: nullable
-        totalStands:
-          type: object
-          properties:
-            availabilities:
-              type: object
-              properties:
-                bikes:
-                  type: integer
-                  format: int32
-                stands:
-                  type: integer
-                  format: int32
-                mechanicalBikes:
-                  type: integer
-                  format: int32
-                electricalBikes:
-                  type: integer
-                  format: int32
-                electricalInternalBatteryBikes:
-                  type: integer
-                  format: int32
-                electricalRemovableBatteryBikes:
-                  type: integer
-                  format: int32
-            capacity:
-              type: integer
-              format: int32
-        mainStands:
-          type: object
-          properties:
-            availabilities:
-              type: object
-              properties:
-                bikes:
-                  type: integer
-                  format: int32
-                stands:
-                  type: integer
-                  format: int32
-                mechanicalBikes:
-                  type: integer
-                  format: int32
-                electricalBikes:
-                  type: integer
-                  format: int32
-                electricalInternalBatteryBikes:
-                  type: integer
-                  format: int32
-                electricalRemovableBatteryBikes:
-                  type: integer
-                  format: int32
-            capacity:
-              type: integer
-              format: int32
-        overflowStands:
-          type: string
-          format: nullable
-    
+        last_update:
+          type: integer
+          format: int64
+    # {"name":"brisbane","commercial_name":"CityCycle","cities":["Brisbane"],"country_code":"AU"},{"name":"besancon","commercial_name":null,"cities":null,"country_code":null}
     Contract:
       type: object
       properties:
         name:
-          description: The name of the contract
           type: string
         commercial_name:
-          description: The commercial name of the contract
-          type: string
-        country_code:
-          description: The country code of the contract
           type: string
         cities:
-          description: The cities of the contract
           type: array
           items:
             type: string
+        country_code:
+          type: string
     Error:
       type: object
       required:
@@ -309,6 +250,6 @@ components:
 servers:
   - url: https://api.jcdecaux.com/vls/v1
     description: Production server
-    variables: 
+    variables:
       apiKey:
         default: 7707124e33cfcabf9ba9896babf0d106860bd77a

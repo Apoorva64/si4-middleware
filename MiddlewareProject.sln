@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.34114.132
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCDECAUX.rest.client", "src\IO.Swagger\JCDECAUX.rest.client.csproj", "{2EE4366E-AEF2-4C11-8032-CBCE4640985B}"
 EndProject
@@ -12,6 +12,13 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JCDECAUX.wcf.server", "JCDECAUX.wcf.server\JCDECAUX.wcf.server.csproj", "{CC14245A-F8FC-4AC2-92E4-F0EFFEC9D503}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routing.wcf.library", "Routing.wcf.library\Routing.wcf.library.csproj", "{C4A17704-2CC5-4C6B-AF4D-706EB7B78CB6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B438E32D-D408-48CC-8559-AE796BCA2338} = {B438E32D-D408-48CC-8559-AE796BCA2338}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OSM.rest.client", "OSM.rest.client\OSM.rest.client.csproj", "{3EACB450-15A4-48B4-8590-41DF05400E5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Routing.wcf.server", "Routing.wcf.server\Routing.wcf.server.csproj", "{6F43DEE7-5F76-4C95-9BA5-1733DFABCCD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +42,14 @@ Global
 		{C4A17704-2CC5-4C6B-AF4D-706EB7B78CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A17704-2CC5-4C6B-AF4D-706EB7B78CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A17704-2CC5-4C6B-AF4D-706EB7B78CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EACB450-15A4-48B4-8590-41DF05400E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EACB450-15A4-48B4-8590-41DF05400E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EACB450-15A4-48B4-8590-41DF05400E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EACB450-15A4-48B4-8590-41DF05400E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F43DEE7-5F76-4C95-9BA5-1733DFABCCD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F43DEE7-5F76-4C95-9BA5-1733DFABCCD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F43DEE7-5F76-4C95-9BA5-1733DFABCCD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F43DEE7-5F76-4C95-9BA5-1733DFABCCD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

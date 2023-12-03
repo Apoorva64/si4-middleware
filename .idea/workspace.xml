@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de69c097-9126-4954-98f5-bbc4433cc3ff" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/OSM.rest.client/DirectionType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OSM.rest.client/OSMClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dashboard _ Minimal UI.webarchive" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/For the Birds (2000).avi" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/JCDECAUX.wcf.library/JCDECAUX.wcf.library.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JCDECAUX.wcf.library/JCDECAUX.wcf.library.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JCDECAUX.wcf.library/JcdecauxProxyService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/JCDECAUX.wcf.library/JcdecauxProxyService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JCDECAUX.wcf.library/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/JCDECAUX.wcf.library/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JCDECAUX.wcf.server/JCDECAUX.wcf.server.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/JCDECAUX.wcf.server/JCDECAUX.wcf.server.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MiddlewareProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/MiddlewareProject.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.wcf.library/App.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/Connected Services/JcdecauxProxyService/JcdecauxProxyService.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/Connected Services/JcdecauxProxyService/JcdecauxProxyService.svcmap" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/IRoutingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.wcf.library/IRoutingService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/Routing.wcf.library.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.wcf.library/Routing.wcf.library.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Routing.wcf.library/RoutingService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Routing.wcf.library/RoutingService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/csharp-client-generated (1).zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/csharp-client-generated.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js-decoopenapi.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/js-decoopenapi.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openroute/src/IO.Swagger.Test/IO.Swagger.Test.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/openroute/src/IO.Swagger.Test/IO.Swagger.Test.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Api/ContractsApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Api/ContractsApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Api/ParksApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Api/ParksApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Api/StationsApi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Api/StationsApi.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiException.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/ApiResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/Configuration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/Configuration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/ExceptionFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/ExceptionFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/GlobalConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/GlobalConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/IApiAccessor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/IApiAccessor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/IReadableConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/IReadableConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Client/SwaggerDateConverter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Client/SwaggerDateConverter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/IO.Swagger.nuspec" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/IO.Swagger.nuspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/JCDECAUX.rest.client.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/JCDECAUX.rest.client.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/Contract.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Model/Contract.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/Error.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Model/Error.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/Park.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Model/Park.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/ParkPosition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Model/ParkPosition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/Station.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Model/Station.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/StationTotalStands.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Model/StationTotalStandsAvailabilities.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IO.Swagger/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/src/IO.Swagger/packages.config" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2YnVMWKbQiacjw1MRcNx1ZGjByF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de69c097-9126-4954-98f5-bbc4433cc3ff" name="Changes" comment="" />
+      <created>1701161285474</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701161285474</updated>
+      <workItem from="1701161289371" duration="654000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

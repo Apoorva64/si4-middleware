@@ -16,7 +16,7 @@ Contact: support@smartmobility.heigit.org
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IO.Swagger.Test</RootNamespace>
     <AssemblyName>IO.Swagger.Test</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
