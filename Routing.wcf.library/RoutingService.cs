@@ -24,7 +24,10 @@ namespace Routing.wcf.library
         private static readonly log4net.ILog Log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        readonly IConnectionFactory _connectionFactory = new ConnectionFactory { HostName = "localhost", Password = "guest", UserName = "guest"};
+        readonly IConnectionFactory _connectionFactory = new ConnectionFactory
+        {
+            Uri = new Uri(System.Configuration.ConfigurationManager.AppSettings.Get("rabbitmq_address")),
+        };
 
         RoutingService()
         {
@@ -59,7 +62,7 @@ namespace Routing.wcf.library
                 return new RoutingResult(error);
             }
 
-            
+
             _stations = _stations = _jcDecauxProxyServiceClient.GetStationsAsync().Result;
             // get nearest stations that have bikes
             var startStation = _stations.OrderBy(
@@ -81,14 +84,14 @@ namespace Routing.wcf.library
             {
                 new Route(walkingRoute, DirectionType.Walking)
             });
-            
+
             if (startStation.number == endStation.number)
             {
                 Log.Info("Start and end station are the same -> defaulting walking route");
                 return ReturnSendToQueue(resultWalking);
             }
-            
-            
+
+
             // get route from start to start station
             FeatureCollection startRoute = _osmRoutingClient.GetRoute(startPosition, ToPosition(startStation),
                 DirectionType.Walking);
@@ -101,7 +104,7 @@ namespace Routing.wcf.library
             }
 
             // get route from end to end station
-            FeatureCollection endRoute = _osmRoutingClient.GetRoute(endPosition, ToPosition(endStation),
+            FeatureCollection endRoute = _osmRoutingClient.GetRoute(ToPosition(endStation), endPosition,
                 DirectionType.Walking);
 
             if (endRoute == null)
@@ -130,12 +133,11 @@ namespace Routing.wcf.library
             });
 
 
-
             var result = resultCycling.Duration < resultWalking.Duration ? resultCycling : resultWalking;
 
             return ReturnSendToQueue(result);
         }
-        
+
         private RoutingResult ReturnSendToQueue(RoutingResult result)
         {
             using var connection = _connectionFactory.CreateConnection();
@@ -148,19 +150,22 @@ namespace Routing.wcf.library
                 arguments: null);
             // purge queue
             channel.QueuePurge("routing");
-            // // Create messages for instructions
+            // Create messages for instructions
+            var i = 0;
             foreach (Route route in result.Routes)
             {
                 foreach (var routeInstruction in route.Instructions.steps)
                 {
-                    var message = String.Format("{0} in {1}m",
-                        routeInstruction.instruction, routeInstruction.distance);
+                    var routeInstructionAndRouteId = new StepAndRouteId(routeInstruction, i);
+                    var message = JsonConvert.SerializeObject(routeInstructionAndRouteId);
                     Byte[] body = Encoding.UTF8.GetBytes(message);
                     channel.BasicPublish("",
                         "routing",
                         null,
                         body);
                 }
+
+                i++;
             }
 
             return result;

@@ -87,33 +87,27 @@ namespace Routing.wcf.library.JcdecauxProxyService
         
         private string addressField;
         
+        private System.Nullable<int> available_bike_standsField;
+        
+        private System.Nullable<int> available_bikesField;
+        
         private System.Nullable<bool> bankingField;
+        
+        private System.Nullable<int> bike_standsField;
         
         private System.Nullable<bool> bonusField;
         
-        private System.Nullable<bool> connectedField;
+        private string contract_nameField;
         
-        private string contractNameField;
-        
-        private System.Nullable<System.DateTime> lastUpdateField;
-        
-        private Routing.wcf.library.JcdecauxProxyService.StationTotalStands mainStandsField;
+        private System.Nullable<long> last_updateField;
         
         private string nameField;
         
         private System.Nullable<int> numberField;
         
-        private System.Nullable<bool> overflowField;
-        
-        private string overflowStandsField;
-        
-        private Routing.wcf.library.JcdecauxProxyService.ParkPosition positionField;
-        
-        private string shapeField;
+        private Routing.wcf.library.JcdecauxProxyService.StationPosition positionField;
         
         private string statusField;
-        
-        private Routing.wcf.library.JcdecauxProxyService.StationTotalStands totalStandsField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public string address
@@ -125,6 +119,32 @@ namespace Routing.wcf.library.JcdecauxProxyService
             set
             {
                 this.addressField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> available_bike_stands
+        {
+            get
+            {
+                return this.available_bike_standsField;
+            }
+            set
+            {
+                this.available_bike_standsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> available_bikes
+        {
+            get
+            {
+                return this.available_bikesField;
+            }
+            set
+            {
+                this.available_bikesField = value;
             }
         }
         
@@ -142,6 +162,19 @@ namespace Routing.wcf.library.JcdecauxProxyService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<int> bike_stands
+        {
+            get
+            {
+                return this.bike_standsField;
+            }
+            set
+            {
+                this.bike_standsField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public System.Nullable<bool> bonus
         {
             get
@@ -155,54 +188,28 @@ namespace Routing.wcf.library.JcdecauxProxyService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<bool> connected
+        public string contract_name
         {
             get
             {
-                return this.connectedField;
+                return this.contract_nameField;
             }
             set
             {
-                this.connectedField = value;
+                this.contract_nameField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string contractName
+        public System.Nullable<long> last_update
         {
             get
             {
-                return this.contractNameField;
+                return this.last_updateField;
             }
             set
             {
-                this.contractNameField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<System.DateTime> lastUpdate
-        {
-            get
-            {
-                return this.lastUpdateField;
-            }
-            set
-            {
-                this.lastUpdateField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Routing.wcf.library.JcdecauxProxyService.StationTotalStands mainStands
-        {
-            get
-            {
-                return this.mainStandsField;
-            }
-            set
-            {
-                this.mainStandsField = value;
+                this.last_updateField = value;
             }
         }
         
@@ -233,33 +240,7 @@ namespace Routing.wcf.library.JcdecauxProxyService
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<bool> overflow
-        {
-            get
-            {
-                return this.overflowField;
-            }
-            set
-            {
-                this.overflowField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string overflowStands
-        {
-            get
-            {
-                return this.overflowStandsField;
-            }
-            set
-            {
-                this.overflowStandsField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Routing.wcf.library.JcdecauxProxyService.ParkPosition position
+        public Routing.wcf.library.JcdecauxProxyService.StationPosition position
         {
             get
             {
@@ -268,19 +249,6 @@ namespace Routing.wcf.library.JcdecauxProxyService
             set
             {
                 this.positionField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public string shape
-        {
-            get
-            {
-                return this.shapeField;
-            }
-            set
-            {
-                this.shapeField = value;
             }
         }
         
@@ -296,188 +264,41 @@ namespace Routing.wcf.library.JcdecauxProxyService
                 this.statusField = value;
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Routing.wcf.library.JcdecauxProxyService.StationTotalStands totalStands
-        {
-            get
-            {
-                return this.totalStandsField;
-            }
-            set
-            {
-                this.totalStandsField = value;
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StationTotalStands", Namespace="http://schemas.datacontract.org/2004/07/JCDECAUX.rest.client.Model")]
-    public partial class StationTotalStands : object
+    [System.Runtime.Serialization.DataContractAttribute(Name="StationPosition", Namespace="http://schemas.datacontract.org/2004/07/JCDECAUX.rest.client.Model")]
+    public partial class StationPosition : object
     {
         
-        private Routing.wcf.library.JcdecauxProxyService.StationTotalStandsAvailabilities availabilitiesField;
+        private System.Nullable<decimal> latField;
         
-        private System.Nullable<int> capacityField;
+        private System.Nullable<decimal> lngField;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public Routing.wcf.library.JcdecauxProxyService.StationTotalStandsAvailabilities availabilities
+        public System.Nullable<decimal> lat
         {
             get
             {
-                return this.availabilitiesField;
+                return this.latField;
             }
             set
             {
-                this.availabilitiesField = value;
+                this.latField = value;
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> capacity
+        public System.Nullable<decimal> lng
         {
             get
             {
-                return this.capacityField;
+                return this.lngField;
             }
             set
             {
-                this.capacityField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ParkPosition", Namespace="http://schemas.datacontract.org/2004/07/JCDECAUX.rest.client.Model")]
-    public partial class ParkPosition : object
-    {
-        
-        private System.Nullable<decimal> latitudeField;
-        
-        private System.Nullable<decimal> longitudeField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<decimal> latitude
-        {
-            get
-            {
-                return this.latitudeField;
-            }
-            set
-            {
-                this.latitudeField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<decimal> longitude
-        {
-            get
-            {
-                return this.longitudeField;
-            }
-            set
-            {
-                this.longitudeField = value;
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StationTotalStandsAvailabilities", Namespace="http://schemas.datacontract.org/2004/07/JCDECAUX.rest.client.Model")]
-    public partial class StationTotalStandsAvailabilities : object
-    {
-        
-        private System.Nullable<int> bikesField;
-        
-        private System.Nullable<int> electricalBikesField;
-        
-        private System.Nullable<int> electricalInternalBatteryBikesField;
-        
-        private System.Nullable<int> electricalRemovableBatteryBikesField;
-        
-        private System.Nullable<int> mechanicalBikesField;
-        
-        private System.Nullable<int> standsField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> bikes
-        {
-            get
-            {
-                return this.bikesField;
-            }
-            set
-            {
-                this.bikesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> electricalBikes
-        {
-            get
-            {
-                return this.electricalBikesField;
-            }
-            set
-            {
-                this.electricalBikesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> electricalInternalBatteryBikes
-        {
-            get
-            {
-                return this.electricalInternalBatteryBikesField;
-            }
-            set
-            {
-                this.electricalInternalBatteryBikesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> electricalRemovableBatteryBikes
-        {
-            get
-            {
-                return this.electricalRemovableBatteryBikesField;
-            }
-            set
-            {
-                this.electricalRemovableBatteryBikesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> mechanicalBikes
-        {
-            get
-            {
-                return this.mechanicalBikesField;
-            }
-            set
-            {
-                this.mechanicalBikesField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public System.Nullable<int> stands
-        {
-            get
-            {
-                return this.standsField;
-            }
-            set
-            {
-                this.standsField = value;
+                this.lngField = value;
             }
         }
     }
@@ -710,6 +531,43 @@ namespace Routing.wcf.library.JcdecauxProxyService
             set
             {
                 this.zipCodeField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ParkPosition", Namespace="http://schemas.datacontract.org/2004/07/JCDECAUX.rest.client.Model")]
+    public partial class ParkPosition : object
+    {
+        
+        private System.Nullable<decimal> latitudeField;
+        
+        private System.Nullable<decimal> longitudeField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<decimal> latitude
+        {
+            get
+            {
+                return this.latitudeField;
+            }
+            set
+            {
+                this.latitudeField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public System.Nullable<decimal> longitude
+        {
+            get
+            {
+                return this.longitudeField;
+            }
+            set
+            {
+                this.longitudeField = value;
             }
         }
     }

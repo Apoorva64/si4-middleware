@@ -31,6 +31,9 @@ public class LineLayer extends MapLayer {
         this.width = width;
     }
 
+    public MapPoint[] getPoints() {
+        return points;
+    }
 
     public LineLayer() {
         this.color = Color.BLACK;

@@ -9,10 +9,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import javafx.scene.shape.Circle;
 
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
@@ -34,6 +39,9 @@ public class HelloController {
     static Tooltip[] tooltips;
     private ConnectionFactory connectionFactory;
 
+    private CurrentLayer currentLayer;
+    static String rabbitmqUri = "amqp://pewpewpew:pewpewpewnioun@localhost";
+
     public HelloController() {
 
     }
@@ -45,23 +53,26 @@ public class HelloController {
 
         List<RoutingServiceRoute> routes = routingService.getBasicHttpBindingIRoutingService().getRoute(start.getText(), end.getText()).getRoutes().getValue().getRoutingServiceRoute();
         for (int i = 0; i < lineLayers.length; i++) {
-            RoutingServiceRoute route = routes.get(i);
-            MapPoint[] points = route.getPositions().getValue().getRoutingServiceSerializablePosition().stream().map(
-                    position -> new MapPoint(position.getLatitude(), position.getLongitude())
-            ).toArray(MapPoint[]::new);
-            if (i == 0) {
-                mapView.flyTo(0, points[0], 5);
-            }
+            MapPoint[] points = new MapPoint[0];
+            if (i < routes.size()) {
+                RoutingServiceRoute route = routes.get(i);
+                points = route.getPositions().getValue().getRoutingServiceSerializablePosition().stream().map(
+                        position -> new MapPoint(position.getLatitude(), position.getLongitude())
+                ).toArray(MapPoint[]::new);
+                if (i == 0) {
+                    mapView.flyTo(0, points[0], 5);
+                }
 
-            switch (route.getDirectionType().getValue().getName().getValue()) {
-                case "cycling-regular":
-                    lineLayers[i].setColor(Color.BLUE);
-                    tooltips[i].setText("Cycling" + "\n" + route.getInstructions().getValue().getDistance() + "m");
-                    break;
-                case "foot-walking":
-                    lineLayers[i].setColor(Color.GREEN);
-                    tooltips[i].setText("Walking" + "\n" + route.getInstructions().getValue().getDistance() + "m");
-                    break;
+                switch (route.getDirectionType().getValue().getName().getValue()) {
+                    case "cycling-regular":
+                        lineLayers[i].setColor(Color.BLUE);
+                        tooltips[i].setText("Cycling" + "\n" + route.getInstructions().getValue().getDistance() + "m");
+                        break;
+                    case "foot-walking":
+                        lineLayers[i].setColor(Color.GREEN);
+                        tooltips[i].setText("Walking" + "\n" + route.getInstructions().getValue().getDistance() + "m");
+                        break;
+                }
             }
 
             lineLayers[i].setPoints(points);
@@ -79,15 +90,17 @@ public class HelloController {
         GetResponse response = channel.basicGet("routing", true);
         if (response != null) {
             String message = new String(response.getBody(), StandardCharsets.UTF_8);
+            Step step = new ObjectMapper().readValue(message, Step.class);
             System.out.println(" [x] Received '" + message + "'");
-            textBox.setText(message);
+            textBox.setText(step.instruction);
+            currentLayer.setPosition(lineLayers[0].getPoints()[0]);
         } else {
             System.out.println(" [x] Received nothing");
         }
         connection.close();
     }
 
-    public void initialize() throws IOException, TimeoutException {
+    public void initialize() throws IOException, TimeoutException, URISyntaxException, NoSuchAlgorithmException, KeyManagementException {
         System.out.println("initialize");
         lineLayers = new LineLayer[3];
         for (int i = 0; i < lineLayers.length; i++) {
@@ -103,17 +116,19 @@ public class HelloController {
             Tooltip.install(lineLayer, tooltip);
             mapView.addLayer(lineLayer);
         }
+        currentLayer = new CurrentLayer();
+        mapView.addLayer(currentLayer);
 
 
         connectionFactory = new ConnectionFactory();
-        connectionFactory.setHost("localhost");
-        connectionFactory.setPort(5672);
-        connectionFactory.setUsername("guest");
-        connectionFactory.setPassword("guest");
+        connectionFactory.setUri(rabbitmqUri);
         Connection connection = connectionFactory.newConnection();
         Channel channel = connection.createChannel();
-        channel.queuePurge("routing");
-        channel.close();
+        try {
+            channel.queuePurge("routing");
+        } catch (IOException ignored) {
+
+        }
         connection.close();
     }
 
@@ -129,8 +144,12 @@ public class HelloController {
         GetResponse response = channel.basicGet("routing", true);
         if (response != null) {
             String message = new String(response.getBody(), StandardCharsets.UTF_8);
+            Step step = new ObjectMapper().readValue(message, Step.class);
+            MapPoint point = lineLayers[step.RouteId].getPoints()[step.way_points.get(0)];
+            mapView.flyTo(0, point, 0.1);
             System.out.println(" [x] Received '" + message + "'");
-            textBox.setText(message + "\n" + textBox.getText());
+            textBox.setText(step.instruction + "\n" + textBox.getText());
+            currentLayer.setPosition(point);
         } else {
             System.out.println(" [x] Received nothing");
         }

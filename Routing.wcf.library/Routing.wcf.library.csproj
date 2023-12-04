@@ -107,6 +107,7 @@
     <Compile Include="RoutingService.SerializablePosition.cs" />
     <Compile Include="RoutingService.Step.cs" />
     <Compile Include="SerilizableDirectionType.cs" />
+    <Compile Include="StepAndRouteId.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -127,9 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\JcdecauxProxyService" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="docker-compose.yaml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
