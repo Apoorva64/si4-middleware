@@ -362,3 +362,5 @@ buildNumber.properties
 /packaged/JCDECAUX.wcf.server/
 /packaged/Routing.wcf.server/
 /packaged/HeavyClient/middleware-1.0-SNAPSHOT-shaded.jar
+
+.vs
