@@ -8,7 +8,7 @@
       - RABBITMQ_DEFAULT_USER=pewpewpew
       - RABBITMQ_DEFAULT_PASS=pewpewpewnioun
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      test: rabbitmq-diagnostics check_port_connectivity
       interval: 5s
       timeout: 30s
-      retries: 3
+      retries: 300
