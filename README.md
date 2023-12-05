@@ -1,4 +1,12 @@
-﻿## Requirements
+﻿## Architecture
+
+![img.png](img.png)
+
+- Routing Server -> "Routing.wcf.server" c# project
+- Proxy + Cache Server -> "JCDECAUX.wcf.server" c# project
+- Heavy Client -> "HeavyClient" java project
+
+## Requirements
 
 - [Java 21](https://www.oracle.com/java/technologies/downloads/#java21) (in PATH)
 - [Maven 3.8.1](https://maven.apache.org/download.cgi)
@@ -13,14 +21,14 @@
 
 ### C#
 
-- Open the project in Visual Studio
+- Open the project in Visual Studio (MiddlewareProject.sln)
 - Build the solution in release mode
-- The binaries will be generated in the bin folder
+- The binaries will be generated in the bin folder of each project
 
 ### Java HeavyClient
 
-- Open the project in Intellij IDEA
-- run `mvn clean install` in the terminal
+- Open the "./HeavyClient" folder in Intellij IDEA
+- run `mvn clean install`
 - The binaries will be generated in the target folder(middleware-1.0-SNAPSHOT-shaded.jar)
 
 ### Packaging
