@@ -14,6 +14,7 @@
 - Visual Studio with all the dependencies
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Docker Compose](https://docs.docker.com/compose/install/)
+- Port 5672(rabbitmq), 15672(rabbitmq management), 8734(Routing.wcf.server), 8733(JCDECAUX.wcf.server) must be free on the host machine
 
 ## Build project
 
