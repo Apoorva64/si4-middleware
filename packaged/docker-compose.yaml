@@ -9,3 +9,6 @@
       - RABBITMQ_DEFAULT_PASS=pewpewpewnioun
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:15672"]
+      interval: 5s
+      timeout: 30s
+      retries: 3

@@ -357,3 +357,8 @@ buildNumber.properties
 .classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,dotnetcore,java,maven
+
+
+/packaged/JCDECAUX.wcf.server/
+/packaged/Routing.wcf.server/
+/packaged/HeavyClient/middleware-1.0-SNAPSHOT-shaded.jar

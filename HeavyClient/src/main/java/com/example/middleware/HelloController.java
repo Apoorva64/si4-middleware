@@ -92,7 +92,7 @@ public class HelloController {
             String message = new String(response.getBody(), StandardCharsets.UTF_8);
             Step step = new ObjectMapper().readValue(message, Step.class);
             System.out.println(" [x] Received '" + message + "'");
-            textBox.setText(step.instruction);
+            textBox.setText(step.instruction + " " + "(" + step.distance + "m)");
             currentLayer.setPosition(lineLayers[0].getPoints()[0]);
         } else {
             System.out.println(" [x] Received nothing");
@@ -148,7 +148,7 @@ public class HelloController {
             MapPoint point = lineLayers[step.RouteId].getPoints()[step.way_points.get(0)];
             mapView.flyTo(0, point, 0.1);
             System.out.println(" [x] Received '" + message + "'");
-            textBox.setText(step.instruction + "\n" + textBox.getText());
+            textBox.setText(step.instruction + " " + "(" + step.distance + "m)" + "\n" + textBox.getText());
             currentLayer.setPosition(point);
         } else {
             System.out.println(" [x] Received nothing");

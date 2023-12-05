@@ -28,10 +28,7 @@ if '%errorlevel%' NEQ '0' (
     pushd "%CD%"
     CD /D "%~dp0"
 :--------------------------------------    
-docker-compose up -d
-:: wait for the containers to be ready
-timeout /t 15
-
-start cmd.exe /c ".\JCDECAUX.wcf.server\bin\Debug\JCDECAUX.wcf.server.exe"
-start cmd.exe /c ".\Routing.wcf.server\bin\Debug\Routing.wcf.server.exe"
-start cmd.exe /c C:\Users\appad\.jdks\openjdk-21.0.1\bin\java.exe --module-path C:\Users\appad\Downloads\javafx-sdk-21.0.1\lib --add-modules="javafx.controls,javafx.fxml" -jar .\HeavyClient\target\middleware-1.0-SNAPSHOT-shaded.jar
+docker-compose up -d --wait
+start cmd.exe /c ".\JCDECAUX.wcf.server\JCDECAUX.wcf.server.exe"
+start cmd.exe /c ".\Routing.wcf.server\Routing.wcf.server.exe"
+java --module-path .\HeavyClient\javafx-sdk-21.0.1\lib --add-modules="javafx.controls,javafx.fxml" -jar .\HeavyClient\middleware-1.0-SNAPSHOT-shaded.jar
