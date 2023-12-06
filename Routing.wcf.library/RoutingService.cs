@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using OSM.rest.client;
 using Routing.wcf.library.JcdecauxProxyService;
 using RabbitMQ.Client;
+using System.Device.Location;
 
 namespace Routing.wcf.library
 {
@@ -181,7 +182,9 @@ namespace Routing.wcf.library
 
         private static double Distance(Position p1, Position p2)
         {
-            return Math.Sqrt(Math.Pow(p1.Latitude - p2.Latitude, 2) + Math.Pow(p1.Longitude - p2.Longitude, 2));
+            var sCoord = new GeoCoordinate(p1.Latitude, p1.Longitude);
+            var eCoord = new GeoCoordinate(p2.Latitude, p2.Longitude);
+            return sCoord.GetDistanceTo(eCoord);
         }
     }
 }
