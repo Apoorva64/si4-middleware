@@ -60,7 +60,7 @@ public class HelloController {
                         position -> new MapPoint(position.getLatitude(), position.getLongitude())
                 ).toArray(MapPoint[]::new);
                 if (i == 0) {
-                    mapView.flyTo(0, points[0], 5);
+                    mapView.flyTo(0, points[0], 0.1);
                 }
 
                 switch (route.getDirectionType().getValue().getName().getValue()) {
